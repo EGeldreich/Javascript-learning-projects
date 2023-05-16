@@ -5,7 +5,7 @@ const decreaseButtonEl= document.querySelector('.counter__button--decrease');
 const counterValueEl= document.querySelector('.counter__value');
 const resetButtonEl= document.querySelector('.counter__reset-button');
 let currentValue = 0;
-
+counterValueEl.textContent = currentValue;
 
 function increase(){
     currentValue++;
@@ -13,11 +13,13 @@ function increase(){
     decreaseButtonEl.classList.remove("counter__button--decrease--zero");
 }
 function decrease(){
-    if (currentValue >=1) {
+    if (currentValue >1) {
         currentValue--;
         counterValueEl.textContent = currentValue;
-        decreaseButtonEl.classList.add("counter__button--decrease--zero");
     } else {
+        currentValue = 0;
+        counterValueEl.textContent = currentValue;
+        decreaseButtonEl.classList.add("counter__button--decrease--zero");
     }
 }
 function reset(){
